@@ -10,9 +10,9 @@ import java.sql.SQLException;
 
 public class Util {
     // реализуйте настройку соеденения с БД
-    static String url = "jdbc:postgresql://localhost:5432/postgres";
-    static String user = "postgres";
-    static String password = "postgres";
+    static String url = "jdbc:mysql://localhost:3306/testdb";
+    static String user = "root";
+    static String password = "mysql";
 
     public static Connection getConnection(){
         Connection connection;
@@ -26,11 +26,11 @@ public class Util {
 
     public static SessionFactory getSessionFactory(){
         Configuration configuration = new Configuration()
-                .setProperty("hibernate.connection.driver_class", "org.postgresql.Driver")
+                .setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver")
                 .setProperty("hibernate.connection.url",url)
                 .setProperty("hibernate.connection.username",user)
                 .setProperty("hibernate.connection.password",password)
-                .setProperty("hibernate.dialect","org.hibernate.dialect.PostgreSQLDialect")
+                .setProperty("hibernate.dialect","org.hibernate.dialect.MySQL8Dialect")
                 .setProperty("hibernate.show_sql","true")
                 .setProperty("hibernate.hbm2ddl.auto","")
                 .addAnnotatedClass(User.class);
