@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <IntrospectionStateNumber>969</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1305</IntrospectionStateNumber>
       <ServerVersion>16.3</ServerVersion>
       <StartupTime>1716535705</StartupTime>
       <TimeZones>true ACDT
@@ -801,7 +801,7 @@ false Zulu
 14643||10|C|G
 14643||-9223372036854775808|U|G
 14643||10|U|G</Grants>
-      <IntrospectionStateNumber>969</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1305</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4234,32 +4234,46 @@ false Zulu
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>969</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-05-29.11:27:25</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>1305</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-06-06.15:03:31</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <table id="265" parent="264" name="TablllL">
+    <sequence id="265" parent="264" name="users_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>17511</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>1303</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <table id="266" parent="264" name="TablllL">
       <ObjectId>16433</ObjectId>
       <StateNumber>783</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="266" parent="264" name="fio">
+    <table id="267" parent="264" name="fio">
       <ObjectId>16405</ObjectId>
       <StateNumber>767</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="267" parent="265" name="id">
+    <table id="268" parent="264" name="users">
+      <ObjectId>17512</ObjectId>
+      <StateNumber>1303</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="269" parent="266" name="id">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>783</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="268" parent="265" name="TablllL_pkey">
+    <index id="270" parent="266" name="TablllL_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16436</ObjectId>
@@ -4268,34 +4282,34 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="269" parent="265" name="TablllL_pkey">
+    <key id="271" parent="266" name="TablllL_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16437</ObjectId>
       <Primary>1</Primary>
       <StateNumber>783</StateNumber>
       <UnderlyingIndexId>16436</UnderlyingIndexId>
     </key>
-    <column id="270" parent="266" name="id">
+    <column id="272" parent="267" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>767</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="271" parent="266" name="name">
+    <column id="273" parent="267" name="name">
       <DasType>text|0s</DasType>
       <Position>2</Position>
       <StateNumber>767</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="272" parent="266" name="age">
+    <column id="274" parent="267" name="age">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>767</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="273" parent="266" name="fio_id_key">
+    <index id="275" parent="267" name="fio_id_key">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16410</ObjectId>
@@ -4303,11 +4317,54 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="274" parent="266" name="fio_id_key">
+    <key id="276" parent="267" name="fio_id_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16411</ObjectId>
       <StateNumber>767</StateNumber>
       <UnderlyingIndexId>16410</UnderlyingIndexId>
+    </key>
+    <column id="277" parent="268" name="id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>1303</StateNumber>
+      <SequenceId>17511</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="278" parent="268" name="name">
+      <DasType>text|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>1303</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="279" parent="268" name="lastname">
+      <DasType>text|0s</DasType>
+      <Position>3</Position>
+      <StateNumber>1303</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="280" parent="268" name="age">
+      <DasType>integer|0s</DasType>
+      <Position>4</Position>
+      <StateNumber>1303</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="281" parent="268" name="users_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>17518</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1303</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="282" parent="268" name="users_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>17519</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1303</StateNumber>
+      <UnderlyingIndexId>17518</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

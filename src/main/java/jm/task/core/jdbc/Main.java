@@ -1,5 +1,6 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
@@ -8,7 +9,7 @@ import java.sql.Statement;
 
 public class Main {
     public static void main(String[] args) {
-        UserDaoJDBCImpl daoJDBC = new UserDaoJDBCImpl();
+        UserDaoHibernateImpl daoJDBC = new UserDaoHibernateImpl();
         daoJDBC.createUsersTable();
 
         daoJDBC.saveUser("Алексей", "Тестовый", (byte) 23);
