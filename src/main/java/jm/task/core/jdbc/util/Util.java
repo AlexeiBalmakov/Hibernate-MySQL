@@ -14,15 +14,6 @@ public class Util {
     static String user = "root";
     static String password = "mysql";
 
-    public static Connection getConnection(){
-        Connection connection;
-        try {
-           connection = DriverManager.getConnection(url, user, password);
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
-        }
-        return connection;
-    }
 
     public static SessionFactory getSessionFactory(){
         Configuration configuration = new Configuration()
